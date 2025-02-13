@@ -1,0 +1,22 @@
+{
+  "name": "roomready",
+  "version": "1.0.0",
+  "description": "The ultimate App for guests to be in the know about their stay.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/musserdn/RoomReady.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/musserdn/RoomReady/issues"
+  },
+  "homepage": "https://github.com/musserdn/RoomReady#readme"
+}
