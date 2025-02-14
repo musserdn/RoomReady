@@ -22,7 +22,7 @@ class AuthService {
                 return true;
             }
         }
-        catch (err) {
+        catch {
             // If decoding fails (e.g., due to an invalid token format), catch the error and return false.
             return false;
         }

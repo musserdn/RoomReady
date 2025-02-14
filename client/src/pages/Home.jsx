@@ -1,45 +1,55 @@
-import { useState, useEffect, useLayoutEffect } from "react";
-import { retrieveUsers } from "../api/userAPI.js";
-import ErrorPage from "./ErrorPage.jsx";
-import UserList from '../components/Users.jsx';
-import auth from '../utils/auth.js';
-import React from 'react';
+import { useState } from "react";
+
+import Auth from '../utils/auth';
+import { login } from "../api/authAPI";
+
 const Home = () => {
-    const [users, setUsers] = useState([]);
-    const [error, setError] = useState(false);
-    const [loginCheck, setLoginCheck] = useState(false);
-    useEffect(() => {
-        if (loginCheck) {
-            fetchUsers();
-        }
-    }, [loginCheck]);
-    useLayoutEffect(() => {
-        checkLogin();
-    }, []);
-    const checkLogin = () => {
-        if (auth.loggedIn()) {
-            setLoginCheck(true);
-        }
-    };
-    const fetchUsers = async () => {
-        try {
-            const data = await retrieveUsers();
-            setUsers(data);
-        }
-        catch (err) {
-            console.error('Failed to login', err);
-            setError(true);
-        }
-    };
-    if (error) {
-        return <ErrorPage />;
+  const [loginData, setLoginData] = useState({
+    username: '',
+    password: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData({
+      ...loginData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await login(loginData);
+      Auth.login(data.token);
+    } catch (err) {
+      console.error('Failed to login', err);
     }
-    return (<>
-            {!loginCheck ? (<div className='login-notice'>
-                        <h1>
-                            Login to view your room!
-                        </h1>
-                    </div>) : (<UserList users={users}/>)}
-        </>);
+  };
+
+  return (
+    <div className='container'>
+      <form className='form' onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        <label >Username</label>
+        <input 
+          type='text'
+          name='username'
+          value={loginData.username || ''}
+          onChange={handleChange}
+        />
+      <label>Password</label>
+        <input 
+          type='password'
+          name='password'
+          value={loginData.password || ''}
+          onChange={handleChange}
+        />
+        <button type='submit'>Submit Form</button>
+      </form>
+    </div>
+    
+  )
 };
+
 export default Home;
