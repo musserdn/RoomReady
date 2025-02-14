@@ -3,3 +3,22 @@ DROP DATABASE IF EXISTS roomready_db;
 
 -- CREATE DATABASE
 CREATE DATABASE roomready_db;
+
+\c roomready_db;
+
+CREATE TABLE rooms (
+  id SERIAL PRIMARY KEY,
+  room INTEGER,
+  status VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  type VARCHAR(1) NOT NULL,
+  room_id INTEGER,
+  FOREIGN KEY (room_id)
+  REFERENCES rooms(id)
+  ON DELETE SET NULL
+);

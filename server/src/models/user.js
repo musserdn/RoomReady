@@ -1,5 +1,6 @@
-import { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 import bcrypt from 'bcrypt';
+
 export class User extends Model {
     // Hash the password before saving the user
     async setPassword(password) {
@@ -7,6 +8,7 @@ export class User extends Model {
         this.password = await bcrypt.hash(password, saltRounds);
     }
 }
+
 export function UserFactory(sequelize) {
     User.init({
         id: {
@@ -25,6 +27,19 @@ export function UserFactory(sequelize) {
         password: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        type: {
+            type: DataTypes.STRING(1),
+            allowNull: false,
+        },
+        room_id: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            references: {
+                model: 'rooms',
+                key: 'id',
+            },
+            onDelete: 'SET NULL',
         },
     }, {
         tableName: 'users',
