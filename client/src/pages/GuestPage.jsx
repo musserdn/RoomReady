@@ -9,7 +9,7 @@ export default function GuestPage() {
             <h1>Welcome, Dan!</h1>
             <h2>Select your room:</h2>
             <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)}>
-                {[...Array(10).keys()].map(num => (
+                {[...Array(12).keys()].map(num => (
                     <option key={num + 1} value={num + 1}>
                         Room {num + 1}
                     </option>

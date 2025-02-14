@@ -24,17 +24,17 @@ const Navbar = () => {
       <ul>
       {
         !loginCheck ? (
-          <li className='nav-item'>
+          <div className='nav-item'>
             <button type='button'>
               <Link to='/'>Login</Link>
             </button>
-          </li>
+          </div>
         ) : (
-          <li className='nav-item'>
+          <div className='nav-item'>
             <button type='button' onClick={() => {
               auth.logout();
             }}>Logout</button>
-          </li>
+          </div>
         )
       }
       </ul>
