@@ -30,8 +30,14 @@ export default function GuestPage() {
             </div>
 
             {/* Housekeeping Buttons */}
-            <div style={{ marginTop: "20px" }}>
-                <button onClick={() => setHousekeeping("Requested")} style={{ marginRight: "10px" }}>
+            <div style={{
+                marginTop: "20px",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "center",
+                gap: "10px"
+            }}>
+                <button onClick={() => setHousekeeping("Requested")}>
                     Request Housekeeping
                 </button>
                 <button onClick={() => setHousekeeping("Skipped")}>
