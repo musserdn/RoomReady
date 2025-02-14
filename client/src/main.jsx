@@ -8,6 +8,7 @@ import ErrorPage from './pages/ErrorPage.jsx';
 import GuestPage from './pages/GuestPage.jsx';
 import Home from './pages/Home.jsx';
 import HouseKeepingPage from './pages/HouseKeepingPage.jsx';
+import MyDay from './pages/MyDay.jsx';
 
 // Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         path: '/HouseKeeping',
         element: <HouseKeepingPage />,
       },
+      {
+        path: '/MyDay',
+        element: <MyDay />,
+      }
     ],
   },
 ]);
