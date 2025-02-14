@@ -1,45 +1,52 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import auth from '../utils/auth';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
 
 const Navbar = () => {
-  const [ loginCheck, setLoginCheck ] = useState(false);
-
-  const checkLogin = () => {
-    if(auth.loggedIn()) {
-      setLoginCheck(true);
-    }
-  };
+  const [loginCheck, setLoginCheck] = useState(false);
+  const location = useLocation(); // Get current route
 
   useEffect(() => {
-    console.log(loginCheck);
-    checkLogin();
-  }, [loginCheck])
+    if (auth.loggedIn()) {
+      setLoginCheck(true);
+    }
+  }, []);
 
   return (
-    <div className='nav'>
-      <div className='nav-title'>
-        <Link to='/'>RoomReady</Link>
-      </div>
-      <ul>
-      {
-        !loginCheck ? (
-          <div className='nav-item'>
-            <button type='button'>
-              <Link to='/'>Login</Link>
-            </button>
-          </div>
-        ) : (
-          <div className='nav-item'>
-            <button type='button' onClick={() => {
-              auth.logout();
-            }}>Logout</button>
-          </div>
-        )
-      }
+    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
+      <ul className="nav nav-tabs">
+        <li className="nav-item">
+          <Link 
+            className={`nav-link ${location.pathname === "/MyDay" ? "active" : ""}`} 
+            to="/MyDay"
+          >
+            Plan my day
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link 
+            className={`nav-link ${location.pathname === "/Guest" ? "active" : ""}`} 
+            to="/Guest"
+          >
+            Room Status
+          </Link>
+        </li>
       </ul>
-    </div>
-  )
-}
+      <div className="ms-auto"> {/* Pushes content to the right */}
+        {!loginCheck ? (
+          <Link to="/" className="btn btn-primary me-2">Login</Link>
+        ) : (
+          <button 
+            className="btn btn-danger" 
+            onClick={() => auth.logout()}
+          >
+            Logout
+          </button>
+        )}
+      </div>
+    </nav>
+  );
+};
 
 export default Navbar;
