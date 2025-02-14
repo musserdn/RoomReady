@@ -4,7 +4,7 @@ import { login } from "../api/authAPI";
 
 const Home = () => {
   const [loginData, setLoginData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
 
@@ -27,27 +27,32 @@ const Home = () => {
   };
 
   return (
-    <div className='container'>
-      <form className='form' onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label >Username</label>
-        <input 
-          type='text'
-          name='username'
-          value={loginData.username || ''}
-          onChange={handleChange}
-        />
-      <label>Password</label>
-        <input 
-          type='password'
-          name='password'
-          value={loginData.password || ''}
-          onChange={handleChange}
-        />
-        <button type='submit'>Submit Form</button>
+    <div className="container mt-5">
+      <form className="mb-3" onSubmit={handleSubmit}>
+        <h1 className="text-center mb-4">Login</h1>
+        <div className="mb-3">
+          <label className="form-label">Email</label>
+          <input 
+            type="email"
+            name="email"
+            className="form-control"
+            value={loginData.email || ''}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-3">
+          <label className="form-label">Password</label>
+          <input 
+            type="password"
+            name="password"
+            className="form-control"
+            value={loginData.password || ''}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
-    
   )
 };
 
