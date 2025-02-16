@@ -1,22 +1,23 @@
 \c roomready_db;
 
-INSERT INTO rooms (room, status)
-VALUES (1, 'Clean'),
-       (2, 'Scheduled'),
-       (3, 'Scheduled'),
-       (4, 'Scheduled'),
-       (5, 'In Progress'),
-       (6, 'Clean'),
-       (7, 'Skip Today'),
-       (8, 'Clean'),
-       (9, 'Clean'),
-       (10, 'Clean'),
-       (11, 'Scheduled'),
-       (12, 'Scheduled');
+INSERT INTO rooms (room, status, "createdAt", "updatedAt")
+VALUES (1, 'Clean', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (2, 'Scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (3, 'Scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (4, 'Scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (5, 'In Progress', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (6, 'Clean', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (7, 'Skip Today', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (8, 'Clean', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (9, 'Clean', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (10, 'Clean', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (11, 'Scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       (12, 'Scheduled', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO users (email, password, type, room_id)
-VALUES ('nat@gmail.com', 'password', 'G', 1),
-       ('dan@gmail.com', 'password', 'G', 2),
-       ('kevin@gmail.com', 'password', 'G', 3),
-       ('eric@gmail.com', 'password', 'H', NULL),
-       ('austin@gmail.com', 'password', 'H', NULL);
+
+INSERT INTO users (email, password, type, room_id, "createdAt", "updatedAt")
+VALUES ('nat@gmail.com', 'password', 'G', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       ('dan@gmail.com', 'password', 'G', 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       ('kevin@gmail.com', 'password', 'G', 3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       ('eric@gmail.com', 'password', 'H', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+       ('austin@gmail.com', 'password', 'H', NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

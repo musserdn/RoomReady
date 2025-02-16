@@ -8,6 +8,12 @@ const PORT = process.env.PORT || 3001;
 app.use(express.static('../client/dist'));
 app.use(express.json());
 app.use(routes);
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Internal Server Error' });
+});
+
 sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
     app.listen(PORT, () => {
         console.log(`Server is listening on port ${PORT}`);

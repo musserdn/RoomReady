@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Auth from '../utils/auth';
 import { login } from "../api/authAPI";
+import Auth from '../utils/auth.js';
 
-const Home = () => {
+const Login = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -32,28 +32,28 @@ const Home = () => {
         <h1 className="text-center mb-4">Login</h1>
         <div className="mb-3">
           <label className="form-label">Email</label>
-          <input 
+          <input
             type="email"
             name="email"
             className="form-control"
-            value={loginData.email || ''}
+            value={loginData.email}
             onChange={handleChange}
           />
         </div>
         <div className="mb-3">
           <label className="form-label">Password</label>
-          <input 
+          <input
             type="password"
             name="password"
             className="form-control"
-            value={loginData.password || ''}
+            value={loginData.password}
             onChange={handleChange}
           />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
-  )
+  );
 };
 
-export default Home;
+export default Login;
