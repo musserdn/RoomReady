@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { login } from "../api/authAPI";
 import Auth from '../utils/auth.js';
 
@@ -7,6 +8,9 @@ const Login = () => {
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +25,7 @@ const Login = () => {
     try {
       const data = await login(loginData);
       Auth.login(data.token);
+      navigate('/guest'); // Redirect to GuestPage after successful login
     } catch (err) {
       console.error('Failed to login', err);
     }
