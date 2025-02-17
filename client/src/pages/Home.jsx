@@ -1,12 +1,16 @@
-import { useState } from "react";
-import Auth from '../utils/auth';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { login } from "../api/authAPI";
+import Auth from '../utils/auth.js';
 
-const Home = () => {
+const Login = () => {
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,6 +25,7 @@ const Home = () => {
     try {
       const data = await login(loginData);
       Auth.login(data.token);
+      navigate('/guest'); // Redirect to GuestPage after successful login
     } catch (err) {
       console.error('Failed to login', err);
     }
@@ -32,28 +37,28 @@ const Home = () => {
         <h1 className="text-center mb-4">Login</h1>
         <div className="mb-3">
           <label className="form-label">Email</label>
-          <input 
+          <input
             type="email"
             name="email"
             className="form-control"
-            value={loginData.email || ''}
+            value={loginData.email}
             onChange={handleChange}
           />
         </div>
         <div className="mb-3">
           <label className="form-label">Password</label>
-          <input 
+          <input
             type="password"
             name="password"
             className="form-control"
-            value={loginData.password || ''}
+            value={loginData.password}
             onChange={handleChange}
           />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
-  )
+  );
 };
 
-export default Home;
+export default Login;
