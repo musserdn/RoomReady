@@ -1,7 +1,7 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2025-02-16T22:44:03.124Z",
+    "__export_date": "2025-02-17T00:58:13.358Z",
     "__export_source": "insomnia.desktop.app:v10.3.0",
     "resources": [
         {
@@ -76,7 +76,7 @@
         {
             "_id": "req_0b2e906774cc48c3968605af7c2c974c",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739745801788,
+            "modified": 1739750125117,
             "created": 1739745280069,
             "url": "http://localhost:3001/api/users/",
             "name": "Create a new User",
@@ -84,10 +84,18 @@
             "method": "POST",
             "body": {
                 "mimeType": "application/json",
-                "text": "{\n  \"email\": \"kim@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
+                "text": "{\n  \"email\": \"joe@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
             },
             "parameters": [],
-            "headers": [],
+            "headers": [
+                {
+                    "id": "pair_70708c71f66343c188612b63b8c2391a",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
             "authentication": {},
             "metaSortKey": -1739745280069,
             "isPrivate": false,
@@ -103,9 +111,9 @@
         {
             "_id": "req_af6fa77e34234855bc46e521a71aa3e0",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739745302776,
+            "modified": 1739752598748,
             "created": 1739741738072,
-            "url": "http://localhost:3001/api/login",
+            "url": "http://localhost:3001/auth/login",
             "name": "Login",
             "description": "",
             "method": "POST",
@@ -117,8 +125,8 @@
             "headers": [
                 {
                     "id": "pair_8ad14f8ef49347a1b8898943fbc28c2e",
-                    "name": "",
-                    "value": "",
+                    "name": "Content-Type",
+                    "value": "application/json",
                     "description": "",
                     "disabled": false
                 }
