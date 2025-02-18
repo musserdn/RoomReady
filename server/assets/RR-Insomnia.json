@@ -1,20 +1,28 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2025-02-17T00:58:13.358Z",
-    "__export_source": "insomnia.desktop.app:v10.3.0",
+    "__export_date": "2025-02-18T01:45:37.290Z",
+    "__export_source": "insomnia.desktop.app:v10.3.1",
     "resources": [
         {
             "_id": "req_f30ef94c5f4f46a3b20ffeb21c14fc7b",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739745793835,
+            "modified": 1739843012278,
             "created": 1739745624041,
-            "url": "http://localhost:3001/api/users/6",
+            "url": "http://localhost:3001/api/users/:id",
             "name": "New Request",
             "description": "",
             "method": "DELETE",
             "body": {},
-            "parameters": [],
+            "parameters": [
+                {
+                    "id": "pair_11e22bd2324b4abfaa0edfe20c11b03b",
+                    "name": "id",
+                    "value": "6",
+                    "description": "",
+                    "disabled": true
+                }
+            ],
             "headers": [
                 {
                     "id": "pair_70854ba5e1944188a68aca3a2e08d7b7",
@@ -24,10 +32,19 @@
                     "disabled": false
                 }
             ],
-            "authentication": {},
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
+                "prefix": "Bearer "
+            },
             "metaSortKey": -1739745624041,
             "isPrivate": false,
-            "pathParameters": [],
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "6"
+                }
+            ],
             "settingStoreCookies": true,
             "settingSendCookies": true,
             "settingDisableRenderRequestBody": false,
@@ -49,22 +66,39 @@
         {
             "_id": "req_750b6ffe13654de79743926e618da35d",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739745797846,
+            "modified": 1739842983862,
             "created": 1739745527687,
-            "url": "http://localhost:3001/api/users/6",
-            "name": "New Request",
+            "url": "http://localhost:3001/api/users/:id",
+            "name": "Update User",
             "description": "",
             "method": "PUT",
             "body": {
                 "mimeType": "application/json",
                 "text": "{\n  \"email\": \"kim@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
             },
-            "parameters": [],
+            "parameters": [
+                {
+                    "id": "pair_f57fe1b69fd94859af69945b04a81853",
+                    "name": "",
+                    "value": "",
+                    "description": "",
+                    "disabled": true
+                }
+            ],
             "headers": [],
-            "authentication": {},
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
+                "prefix": "Bearer"
+            },
             "metaSortKey": -1739745527687,
             "isPrivate": false,
-            "pathParameters": [],
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "7"
+                }
+            ],
             "settingStoreCookies": true,
             "settingSendCookies": true,
             "settingDisableRenderRequestBody": false,
@@ -76,10 +110,10 @@
         {
             "_id": "req_0b2e906774cc48c3968605af7c2c974c",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739750125117,
+            "modified": 1739842724025,
             "created": 1739745280069,
             "url": "http://localhost:3001/api/users/",
-            "name": "Create a new User",
+            "name": "New User",
             "description": "",
             "method": "POST",
             "body": {
@@ -96,7 +130,11 @@
                     "disabled": false
                 }
             ],
-            "authentication": {},
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
+                "prefix": "Bearer"
+            },
             "metaSortKey": -1739745280069,
             "isPrivate": false,
             "pathParameters": [],
@@ -111,10 +149,10 @@
         {
             "_id": "req_af6fa77e34234855bc46e521a71aa3e0",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739752598748,
+            "modified": 1739842498097,
             "created": 1739741738072,
             "url": "http://localhost:3001/auth/login",
-            "name": "Login",
+            "name": "Login - get Token",
             "description": "",
             "method": "POST",
             "body": {
@@ -146,24 +184,28 @@
         {
             "_id": "req_9fde8aab5f2c4d519b7d3773d091c1f6",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739745241905,
+            "modified": 1739842760394,
             "created": 1739741277135,
             "url": "http://localhost:3001/api/users/",
-            "name": "Get Users",
+            "name": "Get ALL Users",
             "description": "",
             "method": "GET",
             "body": {},
             "parameters": [],
             "headers": [
                 {
-                    "id": "pair_f560920ac3284741a7503e9a6047805d",
+                    "id": "pair_9759601565ae4491904d01a0dc4791e8",
                     "name": "",
                     "value": "",
                     "description": "",
-                    "disabled": true
+                    "disabled": false
                 }
             ],
-            "authentication": {},
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
+                "prefix": "Bearer"
+            },
             "metaSortKey": -1739741277135,
             "isPrivate": false,
             "pathParameters": [],
@@ -178,27 +220,53 @@
         {
             "_id": "req_cf3ae0f274a04b01a27105ef48f37179",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739745256658,
+            "modified": 1739843054189,
             "created": 1739745254459,
-            "url": "http://localhost:3001/api/users/1",
-            "name": "Get User 1",
+            "url": "http://localhost:3001/api/users/:id",
+            "name": "Get a User by ID",
             "description": "",
             "method": "GET",
-            "body": {},
-            "parameters": [],
-            "headers": [
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_63977d00b4034e088a3b2ac9212f8131",
+                        "name": "",
+                        "value": "",
+                        "description": "",
+                        "disabled": false
+                    }
+                ]
+            },
+            "parameters": [
                 {
-                    "id": "pair_f560920ac3284741a7503e9a6047805d",
+                    "id": "pair_798d11815c684d07ac1126bfa4692820",
                     "name": "",
                     "value": "",
                     "description": "",
                     "disabled": true
                 }
             ],
-            "authentication": {},
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_5ad7d9e7e7b14d928e42964f0449ed00"
+                }
+            ],
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
+                "prefix": "Bearer"
+            },
             "metaSortKey": -1739080821463.5,
             "isPrivate": false,
-            "pathParameters": [],
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "2"
+                }
+            ],
             "settingStoreCookies": true,
             "settingSendCookies": true,
             "settingDisableRenderRequestBody": false,

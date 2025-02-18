@@ -28,15 +28,15 @@ class AuthService {
         }
     }
     getToken() {
-        const loggedUser = localStorage.getItem('id_token') || '';
+        const loggedUser = localStorage.getItem('token') || '';
         return loggedUser;
     }
-    login(idToken) {
-        localStorage.setItem('id_token', idToken);
-        window.location.assign('/');
+    login(token) {
+        localStorage.setItem('token', token);
+        window.location.assign('/Guest');
     }
     logout() {
-        localStorage.removeItem('id_token');
+        localStorage.removeItem('token');
         window.location.assign('/');
     }
 }
