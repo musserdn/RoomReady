@@ -1,10 +1,13 @@
 -- DROP DATABASE
-DROP DATABASE IF EXISTS roomready_db;
+--DROP DATABASE IF EXISTS roomready_db;
 
 -- CREATE DATABASE
-CREATE DATABASE roomready_db;
+--CREATE DATABASE roomready_db;
 
-\c roomready_db;
+--\c roomready_db;
+
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS rooms CASCADE;
 
 CREATE TABLE rooms (
   id SERIAL PRIMARY KEY,
