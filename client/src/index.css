@@ -487,3 +487,71 @@ button:focus-visible {
   }
 }
   
+/* Weather Components */
+.myday-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #e0f7fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.card {
+  background: rgba(6, 185, 134, 0.3);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+}
+
+.temp {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.city {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.details {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.col img {
+  width: 40px;
+  height: 40px;
+}
+
+.humidity, .wind {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
