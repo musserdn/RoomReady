@@ -1,50 +1,41 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2025-02-18T01:45:37.290Z",
+    "__export_date": "2025-02-19T02:17:06.646Z",
     "__export_source": "insomnia.desktop.app:v10.3.1",
     "resources": [
         {
-            "_id": "req_f30ef94c5f4f46a3b20ffeb21c14fc7b",
+            "_id": "req_af6fa77e34234855bc46e521a71aa3e0",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739843012278,
-            "created": 1739745624041,
-            "url": "http://localhost:3001/api/users/:id",
-            "name": "New Request",
+            "modified": 1739930772614,
+            "created": 1739741738072,
+            "url": "{{ _.base_url }}/auth/login",
+            "name": "Login - get Token",
             "description": "",
-            "method": "DELETE",
-            "body": {},
-            "parameters": [
-                {
-                    "id": "pair_11e22bd2324b4abfaa0edfe20c11b03b",
-                    "name": "id",
-                    "value": "6",
-                    "description": "",
-                    "disabled": true
-                }
-            ],
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"email\": \"dan@gmail.com\",\n  \"password\": \"password\"\n}"
+            },
+            "parameters": [],
             "headers": [
                 {
-                    "id": "pair_70854ba5e1944188a68aca3a2e08d7b7",
-                    "name": "",
-                    "value": "",
+                    "id": "pair_8ad14f8ef49347a1b8898943fbc28c2e",
+                    "name": "Content-Type",
+                    "value": "application/json",
                     "description": "",
                     "disabled": false
                 }
             ],
             "authentication": {
                 "type": "bearer",
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
-                "prefix": "Bearer "
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5OTMwMzk5LCJleHAiOjE3Mzk5MzM5OTl9.RFaMXqwleT1t_PMLYkvi2Xu0D8UsUNeGiyZ_5Sbk2M0",
+                "prefix": "Bearer",
+                "disabled": true
             },
-            "metaSortKey": -1739745624041,
+            "metaSortKey": -1739930693770,
             "isPrivate": false,
-            "pathParameters": [
-                {
-                    "name": "id",
-                    "value": "6"
-                }
-            ],
+            "pathParameters": [],
             "settingStoreCookies": true,
             "settingSendCookies": true,
             "settingDisableRenderRequestBody": false,
@@ -64,129 +55,11 @@
             "_type": "workspace"
         },
         {
-            "_id": "req_750b6ffe13654de79743926e618da35d",
-            "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739842983862,
-            "created": 1739745527687,
-            "url": "http://localhost:3001/api/users/:id",
-            "name": "Update User",
-            "description": "",
-            "method": "PUT",
-            "body": {
-                "mimeType": "application/json",
-                "text": "{\n  \"email\": \"kim@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
-            },
-            "parameters": [
-                {
-                    "id": "pair_f57fe1b69fd94859af69945b04a81853",
-                    "name": "",
-                    "value": "",
-                    "description": "",
-                    "disabled": true
-                }
-            ],
-            "headers": [],
-            "authentication": {
-                "type": "bearer",
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
-                "prefix": "Bearer"
-            },
-            "metaSortKey": -1739745527687,
-            "isPrivate": false,
-            "pathParameters": [
-                {
-                    "name": "id",
-                    "value": "7"
-                }
-            ],
-            "settingStoreCookies": true,
-            "settingSendCookies": true,
-            "settingDisableRenderRequestBody": false,
-            "settingEncodeUrl": true,
-            "settingRebuildPath": true,
-            "settingFollowRedirects": "global",
-            "_type": "request"
-        },
-        {
-            "_id": "req_0b2e906774cc48c3968605af7c2c974c",
-            "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739842724025,
-            "created": 1739745280069,
-            "url": "http://localhost:3001/api/users/",
-            "name": "New User",
-            "description": "",
-            "method": "POST",
-            "body": {
-                "mimeType": "application/json",
-                "text": "{\n  \"email\": \"joe@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
-            },
-            "parameters": [],
-            "headers": [
-                {
-                    "id": "pair_70708c71f66343c188612b63b8c2391a",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "description": "",
-                    "disabled": false
-                }
-            ],
-            "authentication": {
-                "type": "bearer",
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
-                "prefix": "Bearer"
-            },
-            "metaSortKey": -1739745280069,
-            "isPrivate": false,
-            "pathParameters": [],
-            "settingStoreCookies": true,
-            "settingSendCookies": true,
-            "settingDisableRenderRequestBody": false,
-            "settingEncodeUrl": true,
-            "settingRebuildPath": true,
-            "settingFollowRedirects": "global",
-            "_type": "request"
-        },
-        {
-            "_id": "req_af6fa77e34234855bc46e521a71aa3e0",
-            "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739842498097,
-            "created": 1739741738072,
-            "url": "http://localhost:3001/auth/login",
-            "name": "Login - get Token",
-            "description": "",
-            "method": "POST",
-            "body": {
-                "mimeType": "application/json",
-                "text": "{\n  \"email\": \"dan@gmail.com\",\n  \"password\": \"password\"\n}"
-            },
-            "parameters": [],
-            "headers": [
-                {
-                    "id": "pair_8ad14f8ef49347a1b8898943fbc28c2e",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "description": "",
-                    "disabled": false
-                }
-            ],
-            "authentication": {},
-            "metaSortKey": -1739741738072,
-            "isPrivate": false,
-            "pathParameters": [],
-            "settingStoreCookies": true,
-            "settingSendCookies": true,
-            "settingDisableRenderRequestBody": false,
-            "settingEncodeUrl": true,
-            "settingRebuildPath": true,
-            "settingFollowRedirects": "global",
-            "_type": "request"
-        },
-        {
             "_id": "req_9fde8aab5f2c4d519b7d3773d091c1f6",
-            "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739842760394,
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739930829104,
             "created": 1739741277135,
-            "url": "http://localhost:3001/api/users/",
+            "url": "{{ _.base_url }}/api/users/",
             "name": "Get ALL Users",
             "description": "",
             "method": "GET",
@@ -201,12 +74,8 @@
                     "disabled": false
                 }
             ],
-            "authentication": {
-                "type": "bearer",
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
-                "prefix": "Bearer"
-            },
-            "metaSortKey": -1739741277135,
+            "authentication": {},
+            "metaSortKey": -1739930728320,
             "isPrivate": false,
             "pathParameters": [],
             "settingStoreCookies": true,
@@ -218,11 +87,29 @@
             "_type": "request"
         },
         {
-            "_id": "req_cf3ae0f274a04b01a27105ef48f37179",
+            "_id": "fld_681bba9479eb477cb5024799d56c7bf0",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739843054189,
+            "modified": 1739930768002,
+            "created": 1739930693670,
+            "name": "Auth",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1739930693670,
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5OTMwMzk5LCJleHAiOjE3Mzk5MzM5OTl9.RFaMXqwleT1t_PMLYkvi2Xu0D8UsUNeGiyZ_5Sbk2M0",
+                "prefix": "Bearer"
+            },
+            "environmentType": "kv",
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_cf3ae0f274a04b01a27105ef48f37179",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739930790810,
             "created": 1739745254459,
-            "url": "http://localhost:3001/api/users/:id",
+            "url": "{{ _.base_url }}/api/users/:id",
             "name": "Get a User by ID",
             "description": "",
             "method": "GET",
@@ -254,12 +141,8 @@
                     "id": "pair_5ad7d9e7e7b14d928e42964f0449ed00"
                 }
             ],
-            "authentication": {
-                "type": "bearer",
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5ODQyMzY5LCJleHAiOjE3Mzk4NDU5Njl9.xnPBZb0f5JtPtYxsXOXDr6mZsMw4NfAF1niuIeNlwGA",
-                "prefix": "Bearer"
-            },
-            "metaSortKey": -1739080821463.5,
+            "authentication": {},
+            "metaSortKey": -1739930728220,
             "isPrivate": false,
             "pathParameters": [
                 {
@@ -276,17 +159,319 @@
             "_type": "request"
         },
         {
+            "_id": "req_0b2e906774cc48c3968605af7c2c974c",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739930793345,
+            "created": 1739745280069,
+            "url": "{{ _.base_url }}/api/users/",
+            "name": "New User",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"email\": \"joe@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "id": "pair_70708c71f66343c188612b63b8c2391a",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1739930728120,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_750b6ffe13654de79743926e618da35d",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739930795439,
+            "created": 1739745527687,
+            "url": "{{ _.base_url }}/api/users/:id",
+            "name": "Update User",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n  \"email\": \"kim@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
+            },
+            "parameters": [
+                {
+                    "id": "pair_f57fe1b69fd94859af69945b04a81853",
+                    "name": "",
+                    "value": "",
+                    "description": "",
+                    "disabled": true
+                }
+            ],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1739930728070,
+            "isPrivate": false,
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "7"
+                }
+            ],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f30ef94c5f4f46a3b20ffeb21c14fc7b",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739930799976,
+            "created": 1739745624041,
+            "url": "{{ _.base_url }}/api/users/:id",
+            "name": "Delete User",
+            "description": "",
+            "method": "DELETE",
+            "body": {},
+            "parameters": [
+                {
+                    "id": "pair_11e22bd2324b4abfaa0edfe20c11b03b",
+                    "name": "id",
+                    "value": "6",
+                    "description": "",
+                    "disabled": true
+                }
+            ],
+            "headers": [
+                {
+                    "id": "pair_70854ba5e1944188a68aca3a2e08d7b7",
+                    "name": "",
+                    "value": "",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1739930727970,
+            "isPrivate": false,
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "6"
+                }
+            ],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_57f3d18cbf834f01ad2ef572eedc418e",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739930802414,
+            "created": 1739930314858,
+            "url": "{{ _.base_url }}/api/rooms/",
+            "name": "Get ALL Rooms",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.3.1"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1739930727945,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_8d2c4f0530f747698a8c89cf8dc421f0",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739930744419,
+            "created": 1739930488769,
+            "url": "{{ _.base_url }}/api/rooms/:id",
+            "name": "Get a Room by ID",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "User-Agent",
+                    "value": "insomnia/10.3.1"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1739930727920,
+            "isPrivate": false,
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "1"
+                }
+            ],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_0c3555e1bbb846f5912ebf57d98c2ab3",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739931004232,
+            "created": 1739930896019,
+            "url": "{{ _.base_url }}/api/rooms/",
+            "name": "New Room",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"room\": 13,\n\t\"status\": \"Clean\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_3964d395c22b455f93fb88bd10090153"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1739930727820,
+            "isPrivate": false,
+            "pathParameters": [],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_fd787170336240b4b2de25656796c62c",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739931377937,
+            "created": 1739931180901,
+            "url": "{{ _.base_url }}/api/rooms/:id",
+            "name": "Update Room",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"room\": 12,\n\t\"status\": \"Clean\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_c854988273f84d76bf5b38096350f43c"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1739930727720,
+            "isPrivate": false,
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "12"
+                }
+            ],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_619fa02d8dff49e1b2395796ee974ce3",
+            "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
+            "modified": 1739931347180,
+            "created": 1739931319686,
+            "url": "{{ _.base_url }}/api/rooms/:id",
+            "name": "Delete Room",
+            "description": "",
+            "method": "DELETE",
+            "body": {},
+            "parameters": [],
+            "headers": [
+                {
+                    "id": "pair_98c24fbbed2143a2a87ca8f74c40d8cd",
+                    "name": "",
+                    "value": "",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1739930727620,
+            "isPrivate": false,
+            "pathParameters": [
+                {
+                    "name": "id",
+                    "value": "13"
+                }
+            ],
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
             "_id": "env_6e7c1a848b0fccb0bdac462b30f5239810a29676",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739741250614,
+            "modified": 1739927285880,
             "created": 1739741250614,
             "name": "Base Environment",
-            "data": {},
+            "data": {
+                "base_url": ""
+            },
             "dataPropertyOrder": null,
             "color": null,
             "isPrivate": false,
             "metaSortKey": 1739741250614,
             "environmentType": "kv",
+            "kvPairData": [
+                {
+                    "id": "envPair_43c57220fa7b4e5c92102bec52de7b30",
+                    "name": "base_url",
+                    "value": "",
+                    "type": "str",
+                    "enabled": true
+                }
+            ],
             "_type": "environment"
         },
         {
@@ -297,6 +482,56 @@
             "name": "Default Jar",
             "cookies": [],
             "_type": "cookie_jar"
+        },
+        {
+            "_id": "env_03bf60e0e4fb43e98ba5fdfc286862ca",
+            "parentId": "env_6e7c1a848b0fccb0bdac462b30f5239810a29676",
+            "modified": 1739930579221,
+            "created": 1739927293849,
+            "name": "Local",
+            "data": {
+                "base_url": "http://localhost:3001"
+            },
+            "dataPropertyOrder": null,
+            "color": "#d7e510",
+            "isPrivate": true,
+            "metaSortKey": 1739927293849,
+            "environmentType": "kv",
+            "kvPairData": [
+                {
+                    "id": "envPair_67a308f34f4d45c1b7352ddf12fee77c",
+                    "name": "base_url",
+                    "value": "http://localhost:3001",
+                    "type": "str",
+                    "enabled": true
+                }
+            ],
+            "_type": "environment"
+        },
+        {
+            "_id": "env_95294d62128d4105bc7eca17d91062e9",
+            "parentId": "env_6e7c1a848b0fccb0bdac462b30f5239810a29676",
+            "modified": 1739927526398,
+            "created": 1739927345389,
+            "name": "Prod",
+            "data": {
+                "base_url": "https://roomready.onrender.com"
+            },
+            "dataPropertyOrder": null,
+            "color": "#e10909",
+            "isPrivate": true,
+            "metaSortKey": 1739927345389,
+            "environmentType": "kv",
+            "kvPairData": [
+                {
+                    "id": "envPair_150f424919534413b5cecbae66813c38",
+                    "name": "base_url",
+                    "value": "https://roomready.onrender.com",
+                    "type": "str",
+                    "enabled": true
+                }
+            ],
+            "_type": "environment"
         }
     ]
 }
