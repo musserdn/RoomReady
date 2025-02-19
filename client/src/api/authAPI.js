@@ -1,6 +1,8 @@
+const API_BASE_URL = '' // change to  'http://localhost:3001' for dev // comment for PR 
+
 const login = async (userInfo) => {
     try {
-        const response = await fetch('/auth/login', {
+        const response = await fetch(`${API_BASE_URL}/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -18,4 +20,5 @@ const login = async (userInfo) => {
         return Promise.reject('Could not fetch user info');
     }
 };
+
 export { login };

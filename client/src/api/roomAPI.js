@@ -1,8 +1,8 @@
 import Auth from '../utils/auth';
 
-const retrieveUsers = async () => {
+const retrieveRooms = async () => {
     try {
-        const response = await fetch('/api/users', {
+        const response = await fetch('/api/rooms', {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
@@ -10,7 +10,7 @@ const retrieveUsers = async () => {
         });
         const data = await response.json();
         if (!response.ok) {
-            throw new Error('invalid user API response, check network tab!');
+            throw new Error('invalid room API response, check network tab!');
         }
         return data;
     }
@@ -20,9 +20,9 @@ const retrieveUsers = async () => {
     }
 };
 
-const retrieveUser = async (id) => {
+const retrieveRoom = async (id) => {
     try {
-        const response = await fetch(`/api/users/${id}`, {
+        const response = await fetch(`/api/rooms/${id}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
@@ -30,7 +30,7 @@ const retrieveUser = async (id) => {
         });
         const data = await response.json();
         if (!response.ok) {
-            throw new Error('invalid user API response, check network tab!');
+            throw new Error('invalid room API response, check network tab!');
         }
         return data;
     }
@@ -38,21 +38,21 @@ const retrieveUser = async (id) => {
         console.log('Error from data retrieval:', err);
         return {};
     }
-}
+}  
 
-const createUser = async (user) => {
+const createRoom = async (room) => {
     try {
-        const response = await fetch('/api/users', {
+        const response = await fetch('/api/rooms', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
             },
-            body: JSON.stringify(user),
+            body: JSON.stringify(room),
         });
         const data = await response.json();
         if (!response.ok) {
-            throw new Error('invalid user API response, check network tab!');
+            throw new Error('invalid room API response, check network tab!');
         }
         return data;
     }
@@ -62,19 +62,19 @@ const createUser = async (user) => {
     }
 }
 
-const updateUser = async (id, user) => {
+const updateRoom = async (id, room) => {
     try {
-        const response = await fetch(`/api/users/${id}`, {
+        const response = await fetch(`/api/rooms/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
             },
-            body: JSON.stringify(user),
+            body: JSON.stringify(room),
         });
         const data = await response.json();
         if (!response.ok) {
-            throw new Error('invalid user API response, check network tab!');
+            throw new Error('invalid room API response, check network tab!');
         }
         return data;
     }
@@ -84,25 +84,24 @@ const updateUser = async (id, user) => {
     }
 }
 
-const deleteUser = async (id) => {
+const deleteRoom = async (id) => {
     try {
-        const response = await fetch(`/api/users/${id}`, {
+        const response = await fetch(`/api/rooms/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
             },
         });
-        const data = await response.json();
         if (!response.ok) {
-            throw new Error('invalid user API response, check network tab!');
+            throw new Error('invalid room API response, check network tab!');
         }
-        return data;
+        return true;
     }
     catch (err) {
         console.log('Error from data retrieval:', err);
-        return {};
+        return false;
     }
 }
 
-export { retrieveUsers, retrieveUser, createUser, updateUser, deleteUser };
+export { retrieveRooms, retrieveRoom, createRoom, updateRoom, deleteRoom };
