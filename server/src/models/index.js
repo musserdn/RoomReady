@@ -6,7 +6,7 @@ const User = UserFactory(sequelize);
 const Room = RoomFactory(sequelize);
 
 // Define associations
-User.belongsTo(Room, { foreignKey: 'room_id' });
-Room.hasMany(User, { foreignKey: 'room_id' });
+User.belongsTo(Room, { foreignKey: 'room' });
+Room.hasMany(User, { foreignKey: 'room' });
 
 export { sequelize, User, Room };
