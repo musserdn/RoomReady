@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { retrieveRooms } from "../api/roomAPI.js";
+import { retrieveRooms, updateRoom } from "../api/roomAPI.js";
 import "/src/index.css";
 
 export default function HouseKeepingPage() {
@@ -27,7 +27,7 @@ export default function HouseKeepingPage() {
   const getColorForStatus = (status) => {
     switch (status) {
       case "Clean":
-        return "#556F44"; //Fern Green
+        return "#556F44"; // Fern Green
       case "Scheduled":
         return "#551B14"; // Caput Mortuum
       case "In Progress":
@@ -37,10 +37,30 @@ export default function HouseKeepingPage() {
     }
   };
 
-  // Example click handler for each button
-  const handleClick = (room) => {
-    console.log("Clicked room:", room);
-    // Additional logic or navigation here if needed
+  // Function that cycles the status
+  const cycleStatus = (currentStatus) => {
+    if (currentStatus === "Clean") return "Scheduled";
+    if (currentStatus === "Scheduled") return "In Progress";
+    // If status is "In Progress" or anything else (e.g., "Skip Today")
+    return "Clean";
+  };
+
+  // Click handler that cycles the status and updates the room
+  const handleClick = async (room) => {
+    const newStatus = cycleStatus(room.status);
+    try {
+      // Call the updateRoom function from your API
+      // We assume room.room is your unique room number key
+      await updateRoom(room.room, { status: newStatus });
+      // Update the local state by mapping over rooms and replacing the updated room
+      setRooms((prevRooms) =>
+        prevRooms.map((r) =>
+          r.room === room.room ? { ...r, status: newStatus } : r
+        )
+      );
+    } catch (error) {
+      console.error("Error updating room:", error);
+    }
   };
 
   return (
