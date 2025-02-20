@@ -13,7 +13,7 @@ const seedAll = async () => {
     console.log('\n----- DATABASE SYNCED -----\n');
 
     await seedSchema();
-    console.log('\n----- SCHEMA SEEDED -----\n');
+    console.log('\n----- SCHEMA CREATED -----\n');
 
     await seedRooms();
     console.log('\n----- ROOMS SEEDED -----\n');

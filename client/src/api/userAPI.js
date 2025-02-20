@@ -1,8 +1,10 @@
 import Auth from '../utils/auth';
 
+const API_BASE_URL = 'http://localhost:3001' // change to  'http://localhost:3001' for dev // comment for PR 
+
 const retrieveUsers = async () => {
     try {
-        const response = await fetch('/api/users', {
+        const response = await fetch(`${API_BASE_URL}/api/users`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
@@ -22,7 +24,7 @@ const retrieveUsers = async () => {
 
 const retrieveUser = async (id) => {
     try {
-        const response = await fetch(`/api/users/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/users/${id}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
@@ -42,7 +44,7 @@ const retrieveUser = async (id) => {
 
 const createUser = async (user) => {
     try {
-        const response = await fetch('/api/users', {
+        const response = await fetch(`${API_BASE_URL}/api/users`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +66,7 @@ const createUser = async (user) => {
 
 const updateUser = async (id, user) => {
     try {
-        const response = await fetch(`/api/users/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/users/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -86,7 +88,7 @@ const updateUser = async (id, user) => {
 
 const deleteUser = async (id) => {
     try {
-        const response = await fetch(`/api/users/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/users/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

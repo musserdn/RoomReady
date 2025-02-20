@@ -1,7 +1,7 @@
 {
     "_type": "export",
     "__export_format": 4,
-    "__export_date": "2025-02-19T02:17:06.646Z",
+    "__export_date": "2025-02-20T01:29:08.579Z",
     "__export_source": "insomnia.desktop.app:v10.3.1",
     "resources": [
         {
@@ -89,7 +89,7 @@
         {
             "_id": "fld_681bba9479eb477cb5024799d56c7bf0",
             "parentId": "wrk_436ab31be66d44a890668d03f6b85531",
-            "modified": 1739930768002,
+            "modified": 1740014434693,
             "created": 1739930693670,
             "name": "Auth",
             "description": "",
@@ -98,7 +98,7 @@
             "metaSortKey": -1739930693670,
             "authentication": {
                 "type": "bearer",
-                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzM5OTMwMzk5LCJleHAiOjE3Mzk5MzM5OTl9.RFaMXqwleT1t_PMLYkvi2Xu0D8UsUNeGiyZ_5Sbk2M0",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRhbkBnbWFpbC5jb20iLCJpZCI6MSwiaWF0IjoxNzQwMDE0NDIyLCJleHAiOjE3NDAwMTgwMjJ9.NqkWm5AfqoYMXMfsDV-fQL2Oe0iOJkdghJjimWDqE0U",
                 "prefix": "Bearer"
             },
             "environmentType": "kv",
@@ -161,7 +161,7 @@
         {
             "_id": "req_0b2e906774cc48c3968605af7c2c974c",
             "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
-            "modified": 1739930793345,
+            "modified": 1740014487778,
             "created": 1739745280069,
             "url": "{{ _.base_url }}/api/users/",
             "name": "New User",
@@ -169,7 +169,7 @@
             "method": "POST",
             "body": {
                 "mimeType": "application/json",
-                "text": "{\n  \"email\": \"joe@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
+                "text": "{\n  \"email\": \"joe@gmail.com\",\n\t\"name\": \"Joe\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room\": null\n}"
             },
             "parameters": [],
             "headers": [
@@ -196,7 +196,7 @@
         {
             "_id": "req_750b6ffe13654de79743926e618da35d",
             "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
-            "modified": 1739930795439,
+            "modified": 1740014766788,
             "created": 1739745527687,
             "url": "{{ _.base_url }}/api/users/:id",
             "name": "Update User",
@@ -204,7 +204,7 @@
             "method": "PUT",
             "body": {
                 "mimeType": "application/json",
-                "text": "{\n  \"email\": \"kim@gmail.com\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room_id\": null\n}"
+                "text": "{\n  \"email\": \"pam@gmail.com\",\n\t\"name\": \"Pam\",\n  \"password\": \"password\",\n  \"type\": \"H\",\n  \"room\": null\n}"
             },
             "parameters": [
                 {
@@ -215,7 +215,15 @@
                     "disabled": true
                 }
             ],
-            "headers": [],
+            "headers": [
+                {
+                    "id": "pair_449112f24c734c2f86cc1909b717709d",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
             "authentication": {},
             "metaSortKey": -1739930728070,
             "isPrivate": false,
@@ -236,7 +244,7 @@
         {
             "_id": "req_f30ef94c5f4f46a3b20ffeb21c14fc7b",
             "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
-            "modified": 1739930799976,
+            "modified": 1740014811731,
             "created": 1739745624041,
             "url": "{{ _.base_url }}/api/users/:id",
             "name": "Delete User",
@@ -267,7 +275,7 @@
             "pathParameters": [
                 {
                     "name": "id",
-                    "value": "6"
+                    "value": "7"
                 }
             ],
             "settingStoreCookies": true,
@@ -310,9 +318,9 @@
         {
             "_id": "req_8d2c4f0530f747698a8c89cf8dc421f0",
             "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
-            "modified": 1739930744419,
+            "modified": 1740014872117,
             "created": 1739930488769,
-            "url": "{{ _.base_url }}/api/rooms/:id",
+            "url": "{{ _.base_url }}/api/rooms/:room",
             "name": "Get a Room by ID",
             "description": "",
             "method": "GET",
@@ -329,8 +337,8 @@
             "isPrivate": false,
             "pathParameters": [
                 {
-                    "name": "id",
-                    "value": "1"
+                    "name": "room",
+                    "value": "2"
                 }
             ],
             "settingStoreCookies": true,
@@ -377,9 +385,9 @@
         {
             "_id": "req_fd787170336240b4b2de25656796c62c",
             "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
-            "modified": 1739931377937,
+            "modified": 1740014899018,
             "created": 1739931180901,
-            "url": "{{ _.base_url }}/api/rooms/:id",
+            "url": "{{ _.base_url }}/api/rooms/:room",
             "name": "Update Room",
             "description": "",
             "method": "PUT",
@@ -400,7 +408,7 @@
             "isPrivate": false,
             "pathParameters": [
                 {
-                    "name": "id",
+                    "name": "room",
                     "value": "12"
                 }
             ],
@@ -415,9 +423,9 @@
         {
             "_id": "req_619fa02d8dff49e1b2395796ee974ce3",
             "parentId": "fld_681bba9479eb477cb5024799d56c7bf0",
-            "modified": 1739931347180,
+            "modified": 1740014917927,
             "created": 1739931319686,
-            "url": "{{ _.base_url }}/api/rooms/:id",
+            "url": "{{ _.base_url }}/api/rooms/:room",
             "name": "Delete Room",
             "description": "",
             "method": "DELETE",
@@ -437,7 +445,7 @@
             "isPrivate": false,
             "pathParameters": [
                 {
-                    "name": "id",
+                    "name": "room",
                     "value": "13"
                 }
             ],

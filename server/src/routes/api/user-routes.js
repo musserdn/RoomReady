@@ -57,7 +57,7 @@ router.put('/:id', async (req, res) => {
             user.name = name;
             user.password = password;
             user.type = type;
-            user.room_id = room;
+            user.room = room;
             await user.save();
             res.json(user);
         } else {

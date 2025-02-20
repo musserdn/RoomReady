@@ -1,8 +1,11 @@
 import Auth from '../utils/auth';
 
+const API_BASE_URL = 'http://localhost:3001' // change to  'http://localhost:3001' for dev // comment for PR 
+
+
 const retrieveRooms = async () => {
     try {
-        const response = await fetch('/api/rooms', {
+        const response = await fetch(`${API_BASE_URL}/api/rooms`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
@@ -22,7 +25,7 @@ const retrieveRooms = async () => {
 
 const retrieveRoom = async (id) => {
     try {
-        const response = await fetch(`/api/rooms/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/rooms/${id}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${Auth.getToken()}`,
@@ -42,7 +45,7 @@ const retrieveRoom = async (id) => {
 
 const createRoom = async (room) => {
     try {
-        const response = await fetch('/api/rooms', {
+        const response = await fetch(`${API_BASE_URL}/api/rooms`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +67,7 @@ const createRoom = async (room) => {
 
 const updateRoom = async (id, room) => {
     try {
-        const response = await fetch(`/api/rooms/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/rooms/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -86,7 +89,7 @@ const updateRoom = async (id, room) => {
 
 const deleteRoom = async (id) => {
     try {
-        const response = await fetch(`/api/rooms/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/rooms/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
