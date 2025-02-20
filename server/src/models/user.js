@@ -19,6 +19,10 @@ export function UserFactory(sequelize) {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -27,12 +31,12 @@ export function UserFactory(sequelize) {
             type: DataTypes.STRING(1),
             allowNull: false,
         },
-        room_id: {
+        room: {
             type: DataTypes.INTEGER,
             allowNull: true,
             references: {
                 model: 'rooms',
-                key: 'id',
+                key: 'room',
             },
             onDelete: 'SET NULL',
         },

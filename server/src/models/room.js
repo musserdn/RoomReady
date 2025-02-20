@@ -4,13 +4,9 @@ export class Room extends Model {}
 
 export function RoomFactory(sequelize) {
     Room.init({
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-        },
         room: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             allowNull: false,
         },
         status: {
