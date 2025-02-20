@@ -88,7 +88,7 @@ export default function MyDay() {
 
     return (
         <div className="myday-container">
-            <h1>Hi Dan! Plan your day for the best vacation ever.</h1>
+            <h1>"Hi there! Plan your day for the best vacation ever."</h1>
             <div className="card">
                 {weather && (
                     <div className="weather">

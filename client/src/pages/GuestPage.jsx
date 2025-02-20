@@ -1,8 +1,24 @@
 import { useState } from "react";
+import { updateRoom } from "../api/roomAPI";
 
 export default function GuestPage() {
     const [selectedRoom, setSelectedRoom] = useState(1);
     const [housekeeping, setHousekeeping] = useState(null);
+
+    // Function to handle updating the room's status
+    const handleHousekeeping = async (status) => {
+        try {
+            // Call the updateRoom function from the API
+            const updatedRoom = await updateRoom(selectedRoom, { status });
+
+            // After successful API response, update the housekeeping status
+            if (updatedRoom) {
+                setHousekeeping(status);
+            }
+        } catch (error) {
+            console.error('Error updating room:', error);
+        }
+    };
 
     return (
         <div style={{ textAlign: "center", padding: "20px" }}>
@@ -37,10 +53,10 @@ export default function GuestPage() {
                 justifyContent: "center",
                 gap: "10px"
             }}>
-                <button onClick={() => setHousekeeping("Requested")}>
+                <button onClick={() => handleHousekeeping("Requested")}>
                     Request Housekeeping
                 </button>
-                <button onClick={() => setHousekeeping("Skipped")}>
+                <button onClick={() => handleHousekeeping("Skipped")}>
                     No Housekeeping Today
                 </button>
             </div>
