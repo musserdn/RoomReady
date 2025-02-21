@@ -24,14 +24,14 @@ const Login = () => {
     e.preventDefault();
     try {
       const data = await login(loginData); 
-      // If the response indicates a failed login, set an error message
+      console.log("Login API response:", data); // Debugging log
       if (!data || !data.token) {
         setErrorMessage("Invalid email or password");
         return;
       }
-      // Use AuthService to store the token
+      AuthService.storeUserDetails(data.user);
       AuthService.login(data.token);
-      // Redirect to /guest after successful login
+    
       navigate("/Guest");
     } catch (err) {
       setErrorMessage("Failed to login. Please check your credentials.");

@@ -8,7 +8,7 @@ export const seedRooms = async () => {
         { room: 4, status: 'Scheduled' },
         { room: 5, status: 'In Progress' },
         { room: 6, status: 'Clean' },
-        { room: 7, status: 'Skip Today' },
+        { room: 7, status: 'Skipped' },
         { room: 8, status: 'Clean' },
         { room: 9, status: 'Clean' },
         { room: 10, status: 'Clean' },

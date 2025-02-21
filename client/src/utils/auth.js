@@ -33,11 +33,24 @@ class AuthService {
     }
     login(token) {
         localStorage.setItem('token', token);
-        window.location.assign('/Guest');
+        
     }
     logout() {
         localStorage.removeItem('token');
+        localStorage.removeItem('user');
         window.location.assign('/');
+    }
+    storeUserDetails(user) {
+        if (!user) {
+            console.error("storeUserDetails: No user received");
+            return;
+        }
+        console.log("Storing user details:", user);
+        const { id, email, name, type, room } = user;
+        localStorage.setItem('user', JSON.stringify({ id, email, name, type, room }));
+    }
+    getUserDetails() {
+        return JSON.parse(localStorage.getItem('user'));
     }
 }
 export default new AuthService();

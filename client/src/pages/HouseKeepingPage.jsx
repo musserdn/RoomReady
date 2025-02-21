@@ -41,7 +41,7 @@ export default function HouseKeepingPage() {
   const cycleStatus = (currentStatus) => {
     if (currentStatus === "Clean") return "Scheduled";
     if (currentStatus === "Scheduled") return "In Progress";
-    // If status is "In Progress" or anything else (e.g., "Skip Today")
+    // If status is "In Progress" or anything else (e.g., "Skipped")
     return "Clean";
   };
 
