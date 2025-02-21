@@ -1,17 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import auth from '../utils/auth';
+import AuthService from '../utils/auth';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
 
 const Navbar = () => {
-  const [loginCheck, setLoginCheck] = useState(false);
   const location = useLocation(); // Get current route
-
-  useEffect(() => {
-    if (auth.loggedIn()) {
-      setLoginCheck(true);
-    }
-  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
@@ -34,15 +27,15 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="ms-auto"> {/* Pushes content to the right */}
-        {!loginCheck ? (
-          <Link to="/" className="btn btn-primary me-2">Login</Link>
-        ) : (
+        {AuthService.loggedIn() ? (
           <button 
             className="btn btn-danger" 
-            onClick={() => auth.logout()}
+            onClick={() => AuthService.logout()}
           >
             Logout
           </button>
+        ) : (
+          <Link to="/" className="btn btn-primary me-2">Login</Link>
         )}
       </div>
     </nav>
