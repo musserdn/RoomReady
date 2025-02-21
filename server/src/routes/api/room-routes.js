@@ -6,7 +6,9 @@ const router = Router();
 // GET /rooms - Get all rooms
 router.get('/', async (_req, res, next) => {
   try {
-    const rooms = await Room.findAll();
+    const rooms = await Room.findAll({
+      order: [['room', 'ASC']], // Order by room number in ascending order
+    });
     res.json(rooms);
   } catch (error) {
     console.error('Error fetching rooms:', error);
