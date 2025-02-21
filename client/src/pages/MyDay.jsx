@@ -119,19 +119,19 @@ export default function MyDay() {
             <div className="events-section">
                 <h2>📅 Nearby Events</h2>
                 {events.length > 0 ? (
-                    <ul>
+                    <div className="event-list">
                         {events.map(event => (
-                            <li key={event.id}>
+                            <div key={event.id} className="event-item">
                                 <a href={event.url} target="_blank" rel="noopener noreferrer">
                                     <Calendar size={20} /> <strong>{event.name}</strong>
                                     <MapPin size={16} /> {event.location}
-                                    <span style={{ fontSize: "1rem", color: "#555" }}>
+                                    <span className="event-date">
                                         {event.date.toLocaleDateString()} <ExternalLink size={16} />
                                     </span>
                                 </a>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 ) : (
                     <p>No upcoming events within the next 7 days.</p>
                 )}

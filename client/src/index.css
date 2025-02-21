@@ -506,6 +506,10 @@ button:focus-visible {
   margin-top: 50px; /* Added this for better spacing between weather and events */
 }
 
+.event-list {
+  text-align: left;
+}
+
 .card {
   background: rgba(6, 185, 134, 0.3);
   padding: 20px;
