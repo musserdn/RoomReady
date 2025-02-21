@@ -76,13 +76,13 @@ export default function MyDay() {
 
     const getWeatherIcon = (condition) => {
         switch (condition) {
-            case "Clouds": return "/public/weatherimages/clouds.png";
-            case "Clear": return "/public/weatherimages/clear.png";
-            case "Rain": return "/public/weatherimages/rain.png";
-            case "Snow": return "/public/weatherimages/snow.png";
-            case "Drizzle": return "/public/weatherimages/drizzle.png";
-            case "Mist": return "/public/weatherimages/mist.png";
-            default: return "/public/weatherimages/default.png";
+            case "Clouds": return "/weatherimages/clouds.png";
+            case "Clear": return "/weatherimages/clear.png";
+            case "Rain": return "/weatherimages/rain.png";
+            case "Snow": return "/weatherimages/snow.png";
+            case "Drizzle": return "/weatherimages/drizzle.png";
+            case "Mist": return "/weatherimages/mist.png";
+            default: return "/weatherimages/default.png";
         }
     };
 
@@ -97,14 +97,14 @@ export default function MyDay() {
                         <h2 className="city">{weather.name}</h2>
                         <div className="details">
                             <div className="col">
-                                <img src="/public/weatherimages/humidity.png" alt="humidity icon" />
+                                <img src="/weatherimages/humidity.png" alt="humidity icon" />
                                 <div>
                                     <p className="humidity">{weather.humidity}</p>
                                     <p>Humidity</p>
                                 </div>
                             </div>
                             <div className="col">
-                                <img src="/public/weatherimages/wind.png" alt="wind icon" />
+                                <img src="/weatherimages/wind.png" alt="wind icon" />
                                 <div>
                                     <p className="wind">{weather.wind}</p>
                                     <p>Wind Speed</p>
@@ -119,19 +119,19 @@ export default function MyDay() {
             <div className="events-section">
                 <h2>📅 Nearby Events</h2>
                 {events.length > 0 ? (
-                    <ul>
+                    <div className="event-list">
                         {events.map(event => (
-                            <li key={event.id}>
+                            <div key={event.id} className="event-item">
                                 <a href={event.url} target="_blank" rel="noopener noreferrer">
                                     <Calendar size={20} /> <strong>{event.name}</strong>
                                     <MapPin size={16} /> {event.location}
-                                    <span style={{ fontSize: "1rem", color: "#555" }}>
+                                    <span className="event-date">
                                         {event.date.toLocaleDateString()} <ExternalLink size={16} />
                                     </span>
                                 </a>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
+                    </div>
                 ) : (
                     <p>No upcoming events within the next 7 days.</p>
                 )}
