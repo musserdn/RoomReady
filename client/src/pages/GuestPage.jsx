@@ -1,22 +1,55 @@
-import { useState } from "react";
-import { updateRoom } from "../api/roomAPI";
+import { useState, useEffect } from "react";
+import { retrieveRoom, updateRoom } from "../api/roomAPI";
 
 export default function GuestPage() {
     const [selectedRoom, setSelectedRoom] = useState(1);
+    const [roomStatus, setRoomStatus] = useState("Loading...");
+    const [lastCleaned, setLastCleaned] = useState("...");
     const [housekeeping, setHousekeeping] = useState(null);
 
-    // Function to handle updating the room's status
+    // Function to format timestamps
+    const formatTimestamp = (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toLocaleString("en-US", {
+            month: "2-digit",
+            day: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+        });
+    };
+
+    // Fetch room status when selectedRoom changes
+    useEffect(() => {
+        const fetchRoomStatus = async () => {
+            try {
+                const roomData = await retrieveRoom(selectedRoom);
+                if (roomData) {
+                    setRoomStatus(roomData.status);
+                    setLastCleaned(formatTimestamp(roomData.updatedAt));
+                }
+            } catch (error) {
+                console.error("Error fetching room:", error);
+                setRoomStatus("Unavailable");
+                setLastCleaned("N/A");
+            }
+        };
+
+        fetchRoomStatus();
+    }, [selectedRoom]);
+
+    // Function to handle housekeeping requests
     const handleHousekeeping = async (status) => {
         try {
-            // Call the updateRoom function from the API
             const updatedRoom = await updateRoom(selectedRoom, { status });
-
-            // After successful API response, update the housekeeping status
             if (updatedRoom) {
+                setRoomStatus(updatedRoom.status);
+                setLastCleaned(formatTimestamp(updatedRoom.updatedAt));
                 setHousekeeping(status);
             }
         } catch (error) {
-            console.error('Error updating room:', error);
+            console.error("Error updating room:", error);
         }
     };
 
@@ -41,8 +74,12 @@ export default function GuestPage() {
                 borderRadius: "10px",
                 backgroundColor: "#f8f8f8"
             }}>
-                <p style={{ margin: "5px 0" }}>The status of your room is: <strong>Clean.</strong></p>
-                <p style={{ margin: "5px 0" }}>It was last cleaned on 02/12/2025 at 9:15PM</p>
+                <p style={{ margin: "5px 0" }}>
+                    The status of your room is: <strong>{roomStatus}</strong>
+                </p>
+                <p style={{ margin: "5px 0" }}>
+                    Your room status was last updated on: {lastCleaned}
+                </p>
             </div>
 
             {/* Housekeeping Buttons */}
@@ -53,7 +90,7 @@ export default function GuestPage() {
                 justifyContent: "center",
                 gap: "10px"
             }}>
-                <button onClick={() => handleHousekeeping("Requested")}>
+                <button onClick={() => handleHousekeeping("Scheduled")}>
                     Request Housekeeping
                 </button>
                 <button onClick={() => handleHousekeeping("Skipped")}>
@@ -64,7 +101,7 @@ export default function GuestPage() {
             {/* Housekeeping Status */}
             {housekeeping && (
                 <p style={{ marginTop: "15px" }}>
-                    Housekeeping: {housekeeping === "Requested" ? "Requested ✅" : "Skipped ❌"}
+                    Housekeeping: {housekeeping === "Scheduled" ? "Requested ✅" : "Skipped ❌"}
                 </p>
             )}
         </div>
