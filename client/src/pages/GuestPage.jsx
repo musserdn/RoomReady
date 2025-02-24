@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import { retrieveRoom, updateRoom } from "../api/roomAPI";
+import AuthService from "../utils/auth";
 
 export default function GuestPage() {
     const [selectedRoom, setSelectedRoom] = useState(1);
     const [roomStatus, setRoomStatus] = useState("Loading...");
     const [lastCleaned, setLastCleaned] = useState("...");
     const [housekeeping, setHousekeeping] = useState(null);
+
+
+    const user = AuthService.getUserDetails();
 
     // Function to format timestamps
     const formatTimestamp = (timestamp) => {
@@ -55,7 +59,7 @@ export default function GuestPage() {
 
     return (
         <div style={{ textAlign: "center", padding: "20px" }}>
-            <h1>Welcome, Dan!</h1>
+            <h1>Welcome, {user && user.name ? user.name : "Guest"}!</h1>
             <h2>Select your room:</h2>
             <select value={selectedRoom} onChange={(e) => setSelectedRoom(e.target.value)}>
                 {[...Array(12).keys()].map(num => (
