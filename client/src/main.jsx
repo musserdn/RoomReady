@@ -10,6 +10,8 @@ import Home from './pages/Home.jsx';
 import HouseKeepingPage from './pages/HouseKeepingPage.jsx';
 import MyDay from './pages/MyDay.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import UserPage from './pages/UserPage.jsx';
+import RoomPage from './pages/RoomPage.jsx';
 
 // Define the accessible routes, and which components respond to which URL
 const router = createBrowserRouter([
@@ -46,6 +48,22 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      {
+        path: '/user',
+        element: (
+          <ProtectedRoute>
+            <UserPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: '/room',
+        element: (
+          <ProtectedRoute>
+            <RoomPage />
+          </ProtectedRoute>
+        ),
+      }
     ],
   },
 ]);

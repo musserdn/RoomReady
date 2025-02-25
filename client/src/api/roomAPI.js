@@ -1,6 +1,6 @@
 import Auth from '../utils/auth';
 
-const API_BASE_URL = '' // change to  'http://localhost:3001' for dev // comment for PR 
+const API_BASE_URL = 'http://localhost:3001' // change to  'http://localhost:3001' for dev // comment for PR 
 
 
 const retrieveRooms = async () => {
